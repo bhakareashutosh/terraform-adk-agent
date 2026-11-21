@@ -8,7 +8,6 @@ A Gemini-powered infrastructure automation agent built with **Google Agent Devel
 
 ```
 .
-├── ADK Terraform Automation Agent on Docker.pdf
 ├── README.md
 ├── .gitignore
 └── tf-automation-agent/
