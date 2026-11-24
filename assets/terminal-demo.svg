@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1050 400" width="100%" height="100%">
+  <defs>
+    <style>
+      .term-font {
+        font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+        font-size: 14px;
+      }
+      .term-title {
+        font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        fill: #94A3B8;
+      }
+      .l1 { animation: appear1 14s infinite; }
+      .l2 { animation: appear2 14s infinite; }
+      .l3 { animation: appear3 14s infinite; }
+      .l4 { animation: appear4 14s infinite; }
+      .l5 { animation: appear5 14s infinite; }
+      .l6 { animation: appear6 14s infinite; }
+      .l7 { animation: appear7 14s infinite; }
+      .l8 { animation: appear8 14s infinite; }
+
+      @keyframes appear1 { 0%, 4% { opacity: 0; } 8%, 94% { opacity: 1; } 98%, 100% { opacity: 0; } }
+      @keyframes appear2 { 0%, 14% { opacity: 0; } 18%, 94% { opacity: 1; } 98%, 100% { opacity: 0; } }
+      @keyframes appear3 { 0%, 26% { opacity: 0; } 30%, 94% { opacity: 1; } 98%, 100% { opacity: 0; } }
+      @keyframes appear4 { 0%, 40% { opacity: 0; } 44%, 94% { opacity: 1; } 98%, 100% { opacity: 0; } }
+      @keyframes appear5 { 0%, 54% { opacity: 0; } 58%, 94% { opacity: 1; } 98%, 100% { opacity: 0; } }
+      @keyframes appear6 { 0%, 66% { opacity: 0; } 70%, 94% { opacity: 1; } 98%, 100% { opacity: 0; } }
+      @keyframes appear7 { 0%, 76% { opacity: 0; } 80%, 94% { opacity: 1; } 98%, 100% { opacity: 0; } }
+      @keyframes appear8 { 0%, 84% { opacity: 0; } 88%, 94% { opacity: 1; } 98%, 100% { opacity: 0; } }
+    </style>
+  </defs>
+
+  <!-- Window Frame -->
+  <rect width="1050" height="400" rx="16" fill="#090D16" stroke="#334155" stroke-width="2"/>
+  <path d="M 0 16 Q 0 0 16 0 L 1034 0 Q 1050 0 1050 16 L 1050 44 L 0 44 Z" fill="#111827"/>
+  <line x1="0" y1="44" x2="1050" y2="44" stroke="#1E293B" stroke-width="1.5"/>
+
+  <!-- Window Controls -->
+  <circle cx="24" cy="22" r="6" fill="#EF4444"/>
+  <circle cx="44" cy="22" r="6" fill="#F59E0B"/>
+  <circle cx="64" cy="22" r="6" fill="#10B981"/>
+  <text x="525" y="27" text-anchor="middle" class="term-title">adk web — terraform_agent interactive session (localhost:8000)</text>
+
+  <!-- Line 1: User Prompt -->
+  <g class="l1" transform="translate(30, 80)">
+    <text class="term-font" fill="#38BDF8" font-weight="bold">User  &#9656;</text>
+    <text x="75" class="term-font" fill="#F8FAFC">"Create a private AWS S3 bucket with versioning and AES256 encryption in us-east-1"</text>
+  </g>
+
+  <!-- Line 2: Tool Call write_tf_file -->
+  <g class="l2" transform="translate(30, 118)">
+    <text class="term-font" fill="#A78BFA">[tool]</text>
+    <text x="65" class="term-font" fill="#C4B5FD">write_tf_file("main.tf") &#8594; Successfully wrote main.tf (718 bytes) in /app/workspace</text>
+  </g>
+
+  <!-- Line 3: Tool Call verify_terraform -->
+  <g class="l3" transform="translate(30, 154)">
+    <text class="term-font" fill="#06B6D4">[tool]</text>
+    <text x="65" class="term-font" fill="#67E8F9">verify_terraform() &#8594; fmt &#10003;  |  init &#10003;  |  validate &#10003;  |  plan &#10003;</text>
+  </g>
+
+  <!-- Line 4: Plan Summary Box -->
+  <g class="l4" transform="translate(30, 182)">
+    <rect x="65" y="0" width="935" height="62" rx="8" fill="#0F172A" stroke="#1E293B"/>
+    <text x="82" y="24" class="term-font" fill="#E2E8F0">Agent &#9656; Plan verified! Terraform will perform the following actions:</text>
+    <text x="82" y="47" class="term-font" fill="#34D399">+ aws_s3_bucket.app_storage   + bucket_versioning   + server_side_encryption   (Plan: 3 to add, 0 to destroy)</text>
+  </g>
+
+  <!-- Line 5: Approval Prompt -->
+  <g class="l5" transform="translate(30, 272)">
+    <text class="term-font" fill="#FBBF24" font-weight="bold">Gate  &#9656;</text>
+    <text x="75" class="term-font" fill="#FDE68A">Do you want to apply this Terraform plan? Reply "yes" or "approve" to proceed.</text>
+  </g>
+
+  <!-- Line 6: User Approval -->
+  <g class="l6" transform="translate(30, 308)">
+    <text class="term-font" fill="#38BDF8" font-weight="bold">User  &#9656;</text>
+    <text x="75" class="term-font" fill="#34D399" font-weight="bold">approve</text>
+  </g>
+
+  <!-- Line 7: Apply Tool Call -->
+  <g class="l7" transform="translate(30, 342)">
+    <text class="term-font" fill="#10B981">[tool]</text>
+    <text x="65" class="term-font" fill="#6EE7B7">apply_terraform(user_confirmed=True) &#8594; Running terraform apply -auto-approve ...</text>
+  </g>
+
+  <!-- Line 8: Final Success -->
+  <g class="l8" transform="translate(30, 376)">
+    <text class="term-font" fill="#10B981" font-weight="bold">Done  &#9656;</text>
+    <text x="75" class="term-font" fill="#A7F3D0">APPLY SUCCESSFUL! Resources: 3 added, 0 changed, 0 destroyed. State saved to workspace.</text>
+  </g>
+</svg>
